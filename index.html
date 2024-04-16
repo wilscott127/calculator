@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+
+        .columns {
+
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            
+
+        }
+        
+        @media screen and (max-width: 800px) {
+            .columns {
+                flex-direction: column;
+            }
+        }
+
+
+    </style>
+
+    
+<h1>JavaScript Calculator</h1>
+
+
+<fieldset>
+    
+
+    <legend>Calculator</legend>
+
+
+    <div>
+    <label for="number">Please Enter a Number</label>
+    <input type="number" name="number" id="number">
+    <button id="calculate">Calculate</button>
+    </div>  
+
+    <div class="columns">
+
+    <p id="addition">Addition</p>
+    <p id="subtraction">Subtraction</p>
+    <p id="multiplication">Multiplication</p>
+    <p id="division">Division</p>
+
+    </div>
+
+</fieldset>
+
+<script>
+
+function calculate() {
+
+    let textAdd = ""
+    let textSubtract = ""
+    let i = 1
+    while (i < 11) {
+        textAdd += `${i} + ${numberEntry.value} = ${i+ parseInt(numberEntry.value)} <br>`
+        textSubtract += `${i} - ${numberEntry.value} = ${i - parseInt(numberEntry.value)} <br>`
+        
+        i++
+    }
+
+    let textMult = ""
+    let j = 1
+
+    do {
+        textMult += `${j} * ${numberEntry.value} = ${j * parseInt(numberEntry.value)} <br>`
+        j++
+
+    } while (j < 11)
+
+    let textDiv = ""
+    
+
+    for (t = 1; t < 11; t++) {
+        textDiv += `${t} / ${numberEntry.value} = ${(t / parseInt(numberEntry.value)).toFixed(2)} <br>`
+    }
+
+
+
+    
+
+    additionCol.innerHTML = textAdd
+    subtractionCol.innerHTML = textSubtract
+    multiplicationCol.innerHTML = textMult
+    divisionCol.innerHTML = textDiv
+
+
+
+
+
+}
+
+numberEntry = document.getElementById('number')
+additionCol = document.getElementById('addition')
+subtractionCol = document.getElementById('subtraction')
+multiplicationCol = document.getElementById('multiplication')
+divisionCol = document.getElementById('division')
+calculatorButton = document.getElementById('calculate')
+calculatorButton.addEventListener('click', calculate)
+
+
+
+</script>
+
+
+
+    
+</body>
+</html>
